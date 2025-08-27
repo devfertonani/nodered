@@ -1,41 +1,42 @@
 # node-red
 
-Node-red template to easy deploy
+Node-red template for easy deployment
 
-## Como gerar a senha
+## How to generate password
 
 ```bash
-node -e "console.log(require('bcryptjs').hashSync(process.argv[1], 8));" sua_senha_aqui
+node -e "console.log(require('bcryptjs').hashSync(process.argv[1], 8));" your_password_here
 ```
 
-## Como iniciar o projeto
+## How to start the project
 
-1. Clone o repositório
-2. Defina as variáveis de ambiente ou crie um arquivo `.env`:
+1. Clone the repository
+2. Set environment variables or create a `.env` file:
 
    ```
    NODE_RED_USERNAME=admin
-   NODE_RED_PASSWORD_HASH=seu_hash_aqui
+   NODE_RED_PASSWORD_HASH=your_hash_here
    PORT=1880
    ```
 
-3. Inicie o projeto com Docker Compose:
+3. Start the project with Docker Compose:
 
    ```bash
    docker-compose up -d
    ```
 
-4. Acesse o Node-RED em: http://localhost:{PORT}/admin (padrão: http://localhost:1880/admin)
+4. Access Node-RED at: http://localhost:{PORT}/admin (default: http://localhost:1880/admin)
 
-5. Para parar o projeto:
+5. To stop the project:
+
    ```bash
    docker-compose down
    ```
 
-## Estrutura do projeto
+## Project structure
 
-- `settings.js`: Configurações do Node-RED
-- `docker-compose.yml`: Configuração dos containers
-- Porta padrão: 1880
-- Interface administrativa: `/admin`
+- `settings.js`: Node-RED configuration
+- `docker-compose.yml`: Containers configuration
+- Default port: 1880
+- Admin interface: `/admin`
 - API: `/api`
