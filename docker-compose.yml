@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  nodered:
+    image: nodered/node-red:latest
+    container_name: nodered
+    restart: unless-stopped
+    ports:
+      - '${PORT:-1880}:1880'
+    environment:
+      - TZ=America/Sao_Paulo
+      - NODE_RED_ENABLE_PROJECTS=true
+      - NODE_RED_ENABLE_SAFE_MODE=false
+      - NODE_RED_USERNAME=${NODE_RED_USERNAME}
+      - NODE_RED_PASSWORD_HASH=${NODE_RED_PASSWORD_HASH}
+      - PORT=${PORT:-1880}
+    volumes:
+      - node_red_data:/data
+      - ./settings.js:/data/settings.js
+    user: '1000:1000'
+
+volumes:
+  node_red_data:
